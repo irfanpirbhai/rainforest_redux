@@ -22,7 +22,7 @@ class ProductsController < ApplicationController
         redirect_to @product, :notice => "Product successfully created!"
         # redirect_to product_path => "Product successfully created!"
       else
-        render :action => new
+        render :action => :new
       end
   end
 
@@ -46,6 +46,11 @@ class ProductsController < ApplicationController
   def destroy
     @product = Product.find(params[:id])
     @product.destroy
+    if @product.save
+      redirect_to products_path, :notice => "Product deleted!"
+    else
+      render action: :index
+    end
   end
 
 end
