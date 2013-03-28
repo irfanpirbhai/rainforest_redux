@@ -11,7 +11,7 @@ def create
     session[:user_id] = @user.id
     redirect_to products_path, :notice => "Logged in"
   else
-    flash[:error] = "Some errors occured"
+    flash[:error] = "Invalid email or password"
     render :action => :new
 
     # flash.now.alert = "Invalid email or password"

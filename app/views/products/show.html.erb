@@ -6,6 +6,10 @@
 
 <p>Price: <%= @product.price_in_cents %></p>
 
+ <% if current_user %>
+<%= render :partial => "reviews/form" %>
+<% end %>
+
 <p>
   <%= link_to "Edit", edit_product_path(@product) %>
   <%= link_to "Delete", @product, 

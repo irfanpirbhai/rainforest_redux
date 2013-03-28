@@ -5,4 +5,5 @@ class User < ActiveRecord::Base
 
   validates :name, :email, :password, :password_confirmation, :presence => true
 
+  has_many :reviews
 end
