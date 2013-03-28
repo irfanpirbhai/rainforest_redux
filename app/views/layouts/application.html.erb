@@ -7,8 +7,23 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <p><%= link_to "Sign up", new_user_path %></p>
+  
+  <% if current_user %>
+
+  Hello <%= current_user.name %>, 
+  <%= link_to 'Log out', session_path("current"), :method => :delete %>
+
+  <% else %>
+  <%= link_to 'Sign up', new_user_path %> 
+  or
+  <%= link_to 'Log in', new_session_path %>
+  <% end %>
+  
   <%= render :partial => "flash_tags" %>
   <%= yield %>
+
+
+
+
 </body>
 </html>
