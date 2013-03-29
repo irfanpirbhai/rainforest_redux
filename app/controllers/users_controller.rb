@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      session[:id] = @user.id
+      session[:user_id] = @user.id
       redirect_to products_path, :notice => "User successfully created!"
     else
       render :action => :new
