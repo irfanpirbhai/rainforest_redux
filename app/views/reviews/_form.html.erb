@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%= form_for @review do |f| %>
 <p>
 <%= f.label :comment %><br>
@@ -6,3 +7,14 @@
 
 <%= f.submit %>
 <% end %>
+=======
+<%= form_for [@product, @review] do |f| %>
+
+  <p>
+    <%= f.label :comment %><br>
+    <%= f.text_area :comment %>
+  </p>
+
+  <%= f.submit %>
+<% end %>
+>>>>>>> wtony

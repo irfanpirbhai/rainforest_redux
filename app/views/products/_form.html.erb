@@ -15,7 +15,6 @@
   </div>
 <% end %>
 
-
 <p>
 <%= f.label :name, "Name" %><br>
 <%= f.text_field :name %><br>
@@ -27,8 +26,8 @@
 </p>
 
 <p>
-<%= f.label :price_in_cents, "Price" %><br>
-<%= f.number_field :price_in_cents %><br>
+<%= f.label :price_in_dollars, "Price" %><br>
+$<%= f.text_field :price_in_dollars %><br>
 </p>
 <%= f.submit %>
 <% end %>

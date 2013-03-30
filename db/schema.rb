@@ -11,14 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20130328122552) do
+=======
+ActiveRecord::Schema.define(:version => 20130329191337) do
+>>>>>>> wtony
 
   create_table "products", :force => true do |t|
     t.string   "name"
     t.text     "description"
-    t.integer  "price_in_cents"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.integer  "price_in_cents", :limit => 8
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
   end
 
   create_table "reviews", :force => true do |t|
@@ -29,6 +33,12 @@ ActiveRecord::Schema.define(:version => 20130328122552) do
     t.datetime "updated_at", :null => false
   end
 
+<<<<<<< HEAD
+=======
+  add_index "reviews", ["product_id"], :name => "index_reviews_on_product_id"
+  add_index "reviews", ["user_id"], :name => "index_reviews_on_user_id"
+
+>>>>>>> wtony
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "email"

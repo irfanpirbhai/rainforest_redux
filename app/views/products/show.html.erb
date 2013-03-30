@@ -1,10 +1,10 @@
-<h1><%= @product.name %></h1>
+ <h1><%= @product.name %></h1>
 
 <p>Description:</p>
 
 <p><%= @product.description %></p>
 
-<p>Price: <%= @product.price_in_cents %></p>
+<p>Price: $<%= @product.price_in_dollars %></p>
 
  <% if current_user %>
 <%= render :partial => "reviews/form" %>
@@ -15,5 +15,17 @@
   <%= link_to "Delete", @product, 
                   :method => :delete, 
                   :confirm => "Are you sure?" %>
-  <%= link_to "Back", products_path %>
 </p>
+
+<h2>Reviews:</h2> 
+
+<%= render @product.reviews %>
+
+<% if current_user %>
+  <%= render "reviews/form" %>
+<% else %>
+  To write a review,
+  <%= link_to "Log in", new_session_path %>
+  or 
+  <%= link_to "Sign up", new_user_path %>.
+<% end %>

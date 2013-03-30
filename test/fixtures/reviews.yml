@@ -2,6 +2,7 @@
 
 one:
   comment: MyText
+<<<<<<< HEAD
   product_id: 1
   user_id: 1
 
@@ -9,3 +10,12 @@ two:
   comment: MyText
   product_id: 1
   user_id: 1
+=======
+  product: 
+  user: 
+
+two:
+  comment: MyText
+  product: 
+  user: 
+>>>>>>> wtony
