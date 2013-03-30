@@ -1,4 +1,4 @@
-<h1><%= @product.name %></h1>
+pro<h1><%= @product.name %></h1>
 
 <p>Description:</p>
 
@@ -17,7 +17,7 @@
 
 <% @product.reviews.each do |review| %>
   <em>
-  <%= User.find(review.user_id).name %>
+  <%= review.user.name %>
   wrote at <%= review.created_at %>:</em>
   <p><%= review.comment %></p>
 <% end %>

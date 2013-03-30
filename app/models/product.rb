@@ -1,5 +1,5 @@
 class Product < ActiveRecord::Base
-  attr_accessible :name, :description, :price_in_cents
+  attr_accessible :name, :description, :price_in_cents, :price_in_dollars
 
   validates :name, :description, :presence => true
   validates :price_in_cents, :presence => true,
@@ -7,8 +7,9 @@ class Product < ActiveRecord::Base
 
   has_many :reviews
 
-#   def price_in_dollars
-#     price_in_cents * /100
-#   end
+
+  # def price_in_dollars(price_in_cents)
+  #   price_in_dollars = number_to_currency(price_in_cents)
+  # end
 
 end

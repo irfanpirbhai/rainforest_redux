@@ -3,18 +3,21 @@ class ReviewsController < ApplicationController
   before_filter :find_product
 
   def index
-    @reviews = @product.reviews
   end
 
   def new
   end
 
   def create
-    @product = Product.find_by_id(params[:product_id])
-    @review = Review.new
-    @review.comment = params[:review][:comment]
-    @review.product_id = params[:product_id]
-    @review.user_id = session[:user_id]
+    @review = @product.reviews.build(params[:review])
+    @review.user = current_user
+
+    # or,
+    # @review = Review.new
+    # @review.comment = params[:review][:comment]
+    # @review.product_id = params[:product_id]
+    # @review.user_id = session[:user_id]
+    
     if @review.save
       flash[:notice] = "Thanks for the review!"
       redirect_to @product
@@ -36,5 +39,5 @@ end
   private
 
   def find_product
-    @product = Product.find_by_id(params[:id])
+    @product = Product.find_by_id(params[:product_id])
   end
