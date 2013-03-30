@@ -1,4 +1,4 @@
-<h1><%= @product.name %></h1>
+ <h1><%= @product.name %></h1>
 
 <p>Description:</p>
 
@@ -15,18 +15,13 @@
 
 <h2>Reviews:</h2> 
 
-<% @product.reviews.each do |review| %>
-  <em>
-  <%= review.user.name %>
-  wrote at <%= review.created_at %>:</em>
-  <p><%= review.comment %></p>
-<% end %>
+<%= render @product.reviews %>
 
-  <% if current_user %>
-    <%= render "reviews/form" %>
-  <% else %>
-    To write a review,
-    <%= link_to "Log in", new_session_path %>
-    or 
-    <%= link_to "Sign up", new_user_path %>.
-  <% end %>
+<% if current_user %>
+  <%= render "reviews/form" %>
+<% else %>
+  To write a review,
+  <%= link_to "Log in", new_session_path %>
+  or 
+  <%= link_to "Sign up", new_user_path %>.
+<% end %>

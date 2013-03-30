@@ -8,6 +8,6 @@ class Product < ActiveRecord::Base
   monetize :price_in_cents, :as => "price_in_dollars", :presence => true,
            :numericality => { :greater_than_or_equal_to => 0 }
 
-  has_many :reviews
+  has_many :reviews, :dependent => :destroy
 
 end
