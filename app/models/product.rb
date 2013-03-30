@@ -5,11 +5,9 @@ class Product < ActiveRecord::Base
   validates :price_in_cents, :presence => true,
             :numericality => { :greater_than_or_equal_to => 0 }
 
+  monetize :price_in_cents, :as => "price_in_dollars", :presence => true,
+           :numericality => { :greater_than_or_equal_to => 0 }
+
   has_many :reviews
-
-
-  # def price_in_dollars(price_in_cents)
-  #   price_in_dollars = number_to_currency(price_in_cents)
-  # end
 
 end
