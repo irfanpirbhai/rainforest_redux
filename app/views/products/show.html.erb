@@ -6,10 +6,6 @@
 
 <p>Price: $<%= @product.price_in_dollars %></p>
 
- <% if current_user %>
-<%= render :partial => "reviews/form" %>
-<% end %>
-
 <p>
   <%= link_to "Edit", edit_product_path(@product) %>
   <%= link_to "Delete", @product, 
@@ -18,8 +14,11 @@
 </p>
 
 <h2>Reviews:</h2> 
-
-<%= render @product.reviews %>
+<% @product.reviews.each do |review| %>
+  <em><%= review.user.name %>
+  wrote at <%= review.created_at %>:</em>
+  <p><%= review.comment %></p>
+<% end %>
 
 <% if current_user %>
   <%= render "reviews/form" %>

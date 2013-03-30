@@ -1,23 +1,5 @@
 class ReviewsController < ApplicationController
 
-<<<<<<< HEAD
-  before_filter :load_product
-
-  def index
-    @reviews = @product.reviews
-    # or, @reviews = Review.where(:product_id => @product.id)
-  end
-
-  def show
-    @review = Review.find(params[:id])
-  end
-
-  def new
-    
-  end
-
-  def create
-=======
   before_filter :find_product
 
   def index
@@ -46,26 +28,15 @@ class ReviewsController < ApplicationController
   end
 
   def show
->>>>>>> wtony
-
   end
 
   def destroy
-
   end
-<<<<<<< HEAD
-
-  def load_product
-    @product = Product.find(params[:product_id])
-  end
-
-end
-=======
-end
 
   private
 
   def find_product
     @product = Product.find_by_id(params[:product_id])
   end
->>>>>>> wtony
+
+end
